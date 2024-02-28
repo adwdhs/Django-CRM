@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h1>Create An Account</h1>
+            <form action="" method="POST">
+
+                {% csrf_token %}
+                <div class="mb-3 mt-4">
+                    <label class="form-label">Username</label>
+                    <input type="text" value="{{username}}" class="form-control" name="username" placeholder="Enter Your Username">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" value="{{email}}" class="form-control" name="email" placeholder="Enter Your Email Address">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password1" placeholder="Enter Your Password">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password Confirmation</label>
+                    <input type="password" class="form-control" name="password2" placeholder="Enter Your Password Confirmation">
+                </div>
+                {% include 'messages.html' %}
+                 <p style="margin-top: 20px;">Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+                <button type="submit" class="btn btn-dark">Create</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock content %}
